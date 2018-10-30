@@ -9,14 +9,9 @@ const FlexContaner = styled.div`
 
 const Value = styled.div`
   font-weight: bold;
-  color: ${transactionExpense};
   margin-right: 5px;
-
-  ${({ type }) =>
-    type === "income" &&
-    `
-      color: ${transactionIncome};
-    `};
+  color: ${({ type }) =>
+    type === "income" ? transactionIncome : transactionExpense};
 `;
 
 const Currency = styled.span`

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { injectGlobal } from "styled-components";
 
 import TransactionPage from "./pages/TransactionPage";
@@ -11,14 +11,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <Fragment>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/overview" component={OverviewPage} />
-            <Route path="/" exact component={TransactionPage} />
-          </Switch>
-        </BrowserRouter>
-      </Fragment>
+      <BrowserRouter>
+        <Fragment>
+          <Route path="/overview" component={OverviewPage} />
+          <Route path="/" exact component={TransactionPage} />
+          <Route render={() => <span>Not found!</span>} />
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }
